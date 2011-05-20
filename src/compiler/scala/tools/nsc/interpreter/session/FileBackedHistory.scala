@@ -70,6 +70,10 @@ object FileBackedHistory {
   //   val ContinuationNL: String = Array('\003', '\n').mkString
   import Properties.userHome
 
-  def defaultFileName = ".scala_history"
+  def defaultFileName = ".scala_history" + {
+    import java.util.Calendar
+    val c = Calendar.getInstance
+    Seq(c.get(Calendar.YEAR),c.get(Calendar.MONTH) + 1,c.get(Calendar.DATE)).mkString("-")
+  }
   def defaultFile: File = File(Path(userHome) / defaultFileName)
 }
