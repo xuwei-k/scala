@@ -29,7 +29,7 @@ class SimpleHistory extends JLineHistory {
     override def toString = value
   }
   
-  def maxSize: Int = 2500
+  def maxSize: Int = Int.MaxValue
   def last = if (isEmpty) fail("last") else buf.last
   
   def size = buf.size
