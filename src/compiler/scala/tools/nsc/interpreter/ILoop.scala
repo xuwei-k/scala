@@ -653,7 +653,7 @@ class ILoop(in0: Option[BufferedReader], protected val out: PrintWriter)
   def enablePowerMode() = {
     replProps.power setValue true
     power.unleash()
-    echo(power.banner)
+//    echo(power.banner)
   }
   
   def verbosity() = {
@@ -838,10 +838,10 @@ class ILoop(in0: Option[BufferedReader], protected val out: PrintWriter)
       // couple seconds saying "wow, it starts so fast!" and by the time
       // they type a command the compiler is ready to roll.
       intp.initialize()
-      if (isReplPower) {
-        echo("Starting in power mode, one moment...\n")
+//      if (isReplPower) {
+//        echo("Starting in power mode, one moment...\n")
         enablePowerMode()
-      }
+//      }
       loop()
     }
     finally closeInterpreter()
